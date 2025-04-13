@@ -1,10 +1,8 @@
 import React from "react";
 import Square from "./Square";
 
-const Board = ({ xIsNext, square, onPlay }) => {
-  const calculateWinner = (square) => {
-    return null;
-  };
+const calculateWinner = (square) => {
+  if (!square) return null;
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -21,6 +19,9 @@ const Board = ({ xIsNext, square, onPlay }) => {
       return square[a];
     }
   }
+};
+
+const Board = ({ xIsNext, square, onPlay }) => {
   const handleClick = (i) => {
     if (square[i] || calculateWinner(square)) {
       return;
